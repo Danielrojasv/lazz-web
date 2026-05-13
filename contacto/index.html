@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — Lazz</title>
+  <meta name="description" content="¿Tienes una consulta sobre Lazz? Escríbenos a contacto@vetastudios.io o usá el formulario. Respondemos en menos de 48 horas hábiles.">
+  <meta name="robots" content="index, follow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Fraunces:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/shared.css">
+  <link rel="icon" type="image/png" href="/assets/brand/lazz-isotype.png">
+
+  <style>
+    .contact {
+      padding: var(--space-xl) 0 var(--space-2xl);
+      background-color: var(--color-ivory);
+    }
+
+    .contact__grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: var(--space-xl);
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .contact__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+      }
+    }
+
+    .contact__info h2 {
+      font-family: var(--font-wordmark);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-cobre);
+      margin: 0 0 var(--space-xs);
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+    }
+
+    .contact__info a {
+      color: var(--color-verde);
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px solid rgba(26, 83, 26, 0.25);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+
+    .contact__info a:hover {
+      border-color: var(--color-verde);
+    }
+
+    .contact__info p {
+      margin: var(--space-md) 0 0;
+      font-size: 15px;
+      color: var(--color-gris);
+      line-height: 1.7;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-family: var(--font-wordmark);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--color-gris);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      background-color: var(--color-blanco);
+      border: 1.5px solid rgba(93, 97, 102, 0.25);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      color: var(--color-gris);
+      font-family: var(--font-body);
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.2s;
+      resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--color-turquesa);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(93, 97, 102, 0.5);
+      font-style: italic;
+    }
+
+    .form-group textarea {
+      min-height: 150px;
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/" class="brand">
+      <img src="/assets/brand/lazz-isotype.png" alt="" class="brand__isotipo">
+      <span class="brand__wordmark">Lazz</span>
+    </a>
+    <nav class="site-header__nav">
+      <a href="/">Inicio</a>
+      <a href="/privacidad/">Privacidad</a>
+      <a href="/terminos/">Términos</a>
+    </nav>
+  </div>
+</header>
+
+<main class="contact">
+  <div class="container">
+
+    <h1 class="section__title">Hablemos</h1>
+    <p class="section__subtitle">
+      ¿Tienes una duda, una sugerencia, o quieres probar Lazz en tu colegio?
+      Escríbenos.
+    </p>
+
+    <div class="contact__grid">
+
+      <div class="contact__info">
+        <h2>Email directo</h2>
+        <a href="mailto:contacto@vetastudios.io">contacto@vetastudios.io</a>
+        <p>
+          Respondemos en menos de 48 horas hábiles. Si tu consulta es urgente,
+          indícalo en el asunto.
+        </p>
+        <h2 style="margin-top: var(--space-lg);">Para prensa o partnerships</h2>
+        <a href="mailto:contacto@vetastudios.io">contacto@vetastudios.io</a>
+      </div>
+
+      <form class="contact-form" action="https://formspree.io/f/mqeywgwj" method="POST">
+        <!-- Hidden fields para que el mensaje llegue identificado como de Lazz
+             (el mismo endpoint atiende también vetastudios.io). -->
+        <input type="hidden" name="_subject" value="Nuevo mensaje desde Lazz">
+        <input type="hidden" name="_next" value="https://lazz.cl/contacto/gracias/">
+        <input type="hidden" name="origen" value="lazz.cl">
+
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="tu@email.com" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos en qué te podemos ayudar..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary" style="align-self: flex-start;">
+          Enviar mensaje
+        </button>
+      </form>
+
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand">
+        <div class="brand">
+          <img src="/assets/brand/lazz-isotype.png" alt="" class="brand__isotipo" style="filter: brightness(0) invert(1);">
+          <span class="brand__wordmark">Lazz</span>
+        </div>
+      </div>
+      <nav class="site-footer__nav">
+        <a href="/">Inicio</a>
+        <a href="/privacidad/">Privacidad</a>
+        <a href="/terminos/">Términos</a>
+      </nav>
+    </div>
+    <p class="site-footer__legal">
+      © 2026 Veta Studios · Puerto Montt, Chile
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
