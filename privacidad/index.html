@@ -34,7 +34,7 @@
 
     <h1>Política de Privacidad</h1>
     <p class="legal__meta">
-      Última actualización: 13 de mayo de 2026 · Versión 1.0
+      Última actualización: 27 de mayo de 2026 · Versión 1.1
     </p>
 
     <h2>1. Identidad del responsable</h2>
@@ -42,7 +42,7 @@
       Lazz es una aplicación móvil para corrección de pruebas de selección
       múltiple operada por <strong>Daniel Rojas Vera</strong>, persona natural,
       RUT 17.889.199-5, con domicilio en Camino San Antonio Km 5.5, Puerto
-      Montt, Región de Los Lagos, Chile.
+      Montt, Región de Los Lagos, Chile, bajo la marca comercial "Veta Studios".
     </p>
     <p>
       Para cualquier consulta sobre esta política o sobre tus datos personales,
@@ -56,16 +56,18 @@
           <th>Dato</th>
           <th>Para qué</th>
           <th>Cuándo</th>
+          <th>Almacenamiento</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>Correo electrónico</td><td>Crear y autenticar tu cuenta</td><td>Al registrarte</td></tr>
-        <tr><td>Contraseña (hash)</td><td>Validar tu inicio de sesión</td><td>Al registrarte o cambiarla</td></tr>
-        <tr><td>Nombre completo (opcional)</td><td>Mostrar tu identidad en la app</td><td>Al registrarte</td></tr>
-        <tr><td>Identificador de suscripción (Apple/Google/RevenueCat)</td><td>Validar tu plan pagado</td><td>Al suscribirte</td></tr>
-        <tr><td>Nombres y números de alumnos (opcional)</td><td>Que puedas identificar cada hoja corregida</td><td>Al cargar o escanear una hoja</td></tr>
-        <tr><td>Calificaciones y respuestas detectadas</td><td>Generar reportes y estadísticas de tu prueba</td><td>Al escanear o cargar manualmente</td></tr>
-        <tr><td>Cantidad mensual de hojas corregidas</td><td>Aplicar el límite del plan Gratis</td><td>Automáticamente al escanear</td></tr>
+        <tr><td>Correo electrónico</td><td>Crear y autenticar tu cuenta</td><td>Al registrarte</td><td>Cifrado en tránsito (TLS)</td></tr>
+        <tr><td>Contraseña (hash)</td><td>Validar tu inicio de sesión</td><td>Al registrarte o cambiarla</td><td>Hash bcrypt</td></tr>
+        <tr><td>Nombre completo (opcional)</td><td>Mostrar tu identidad en la app</td><td>Al registrarte</td><td>Cifrado en tránsito (TLS)</td></tr>
+        <tr><td>Identificador de suscripción (Apple/Google/RevenueCat)</td><td>Validar tu plan pagado</td><td>Al suscribirte</td><td>Cifrado en tránsito (TLS)</td></tr>
+        <tr><td>Nombres y números de alumnos (opcional)</td><td>Que puedas identificar cada hoja corregida</td><td>Al cargar o escanear una hoja</td><td><strong>Cifrados en reposo con clave derivada por usuario (AES-256-GCM + HKDF-SHA256)</strong></td></tr>
+        <tr><td>Calificaciones y respuestas detectadas</td><td>Generar reportes y estadísticas de tu prueba</td><td>Al escanear o cargar manualmente</td><td>Cifrado en tránsito (TLS)</td></tr>
+        <tr><td>Cantidad mensual de hojas corregidas</td><td>Aplicar el límite del plan Gratis</td><td>Automáticamente al escanear</td><td>Cifrado en tránsito (TLS)</td></tr>
+        <tr><td>Datos técnicos del dispositivo y conexión (IP, tipo de dispositivo, sistema operativo, versión de la app)</td><td>Diagnóstico, seguridad, prevención de abuso</td><td>Automáticamente al usar la app</td><td>Cifrado en tránsito (TLS)</td></tr>
       </tbody>
     </table>
 
@@ -87,7 +89,7 @@
     <ul>
       <li>Operar el servicio (autenticación, corrección, reportes).</li>
       <li>Cobrar tu suscripción a través de Apple App Store o Google Play.</li>
-      <li>Aplicar los límites de tu plan (Gratis = 100 hojas al mes, 1 curso).</li>
+      <li>Aplicar los límites de tu plan (Gratis: 100 hojas al mes, hasta 3 cursos).</li>
       <li>Generar estadísticas anónimas de uso del servicio (no individualizadas).</li>
       <li>Cumplir obligaciones legales (tributarias, requerimientos de autoridades competentes).</li>
     </ul>
@@ -167,6 +169,7 @@
       <li>Contraseñas almacenadas con bcrypt.</li>
       <li>Tokens de sesión guardados en Keychain (iOS) o KeyStore (Android), atados al dispositivo.</li>
       <li>Tokens de actualización con rotación y detección de reutilización (replay).</li>
+      <li>Los nombres de alumnos y los nombres de cursos se almacenan <strong>cifrados en reposo</strong> mediante AES-256-GCM, con claves de cifrado derivadas por usuario (HKDF-SHA256) a partir de una clave maestra protegida. El operador del servicio no almacena los nombres en texto plano en ningún momento.</li>
       <li>Las fotos de hojas no se persisten; sólo viven en memoria durante el proceso OMR.</li>
       <li>Acceso a la base de datos limitado a personal autorizado.</li>
     </ul>
@@ -179,11 +182,24 @@
 
     <h2>10. Menores de edad</h2>
     <p>
-      Lazz está dirigida a docentes mayores de 18 años. <strong>No
-      recolectamos datos de menores de edad</strong> salvo el nombre del alumno
-      cuando el docente lo escribe. Ese nombre es responsabilidad del docente,
-      quien actúa como tratante de datos de sus propios alumnos bajo su
-      contexto educacional.
+      Lazz está dirigida a docentes mayores de 18 años. No solicitamos
+      directamente datos a menores de edad. Si el docente decide ingresar
+      nombres de alumnos en la app, esos nombres pueden corresponder a
+      personas menores de edad.
+    </p>
+    <p>
+      El docente, en su calidad de educador, es el <strong>responsable</strong>
+      del tratamiento de los datos personales de sus alumnos en los términos
+      de la Ley 21.719. Lazz actúa como <strong>encargado</strong> de
+      tratamiento por cuenta del docente, conforme al Anexo de Tratamiento de
+      Datos incluido en la sección 11 de los
+      <a href="/terminos/">Términos de Uso</a>.
+    </p>
+    <p>
+      Como medida adicional de protección, los nombres de alumnos se almacenan
+      <strong>cifrados en reposo</strong> con una clave derivada por usuario,
+      de modo que ni siquiera el personal del servicio puede leerlos sin la
+      clave maestra correspondiente.
     </p>
 
     <h2>11. Cookies y tecnologías similares</h2>
@@ -212,7 +228,14 @@
       <li><strong>Dirección postal</strong>: Camino San Antonio Km 5.5,
         Puerto Montt, Región de Los Lagos, Chile</li>
       <li><strong>Reclamos formales</strong>: Agencia de Protección de Datos
-        Personales (Chile)</li>
+        Personales (Chile), cuando se encuentre en funcionamiento conforme a
+        la Ley 21.719.</li>
+    </ul>
+
+    <h2>Historial de versiones</h2>
+    <ul>
+      <li><strong>v1.1 — 27 de mayo de 2026:</strong> Alineación del modelo responsable/encargado en sección 10 (menores); declaración de cifrado at-rest de nombres de alumnos en secciones 2 y 9; ajuste del cap de cursos del plan Gratis en sección 3; incorporación de columna "Almacenamiento" en la tabla de datos; ajustes menores de consistencia.</li>
+      <li>v1.0 — 13 de mayo de 2026: versión inicial.</li>
     </ul>
 
   </div>
