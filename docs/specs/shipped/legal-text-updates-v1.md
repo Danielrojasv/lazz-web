@@ -1,7 +1,8 @@
 # Actualizaciones a documentos legales (v1)
 
-**Status:** draft
+**Status:** shipped
 **Fecha:** 2026-05-14
+**Shipped:** 2026-05-27
 **Owner:** Daniel Rojas Vera
 **Sistema afectado:** lazz.cl (sitio público) — Términos de Uso, Política de Privacidad
 
@@ -324,3 +325,15 @@ Esta spec no produce código. Los "tests" son revisiones de coherencia.
 5. Cifrado en producción.
 6. Publicación coordinada.
 7. Spec se mueve a `shipped/` con screenshots y PDFs adjuntos.
+
+---
+
+## Shipped
+
+- **2026-05-27:** Publicado v1.1 en https://lazz.cl/terminos/ y https://lazz.cl/privacidad/ (commit `65a0bc0` en `lazz-web`).
+- DoD verificado contra contenido publicado (5/5 puntos).
+- PDFs de evidencia adjuntos en `/opt/grader-app/docs/specs/shipped/evidence/legal-text-v1.1-terminos.pdf` y `legal-text-v1.1-privacidad.pdf` (bundle centralizado con `app-legal-coherence-v1`).
+- Decisiones del founder durante verificación:
+  - (a) Cross-link Privacy §10 → T&C §11 funciona pero sin anchor. Aceptado: usuarios que llegan a privacy leen completa, scroll no es fricción real.
+  - (b) Privacy §5 y §3 mantienen menciones a Google Play / Android a pesar de launch inicial solo iOS. Razón: launch Android planificado en paralelo, texto unificado anticipado. Reversión explícita de OQ-4 del spec hermano `app-legal-coherence-v1.md`.
+- Spec hermana en grader-app: `app-legal-coherence-v1.md` (approved 2026-05-27, in-progress) cubre la coherencia app-side de las promesas publicadas.
